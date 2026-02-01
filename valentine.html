@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>For My Denny 💖</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #ffdde1, #ee9ca7);
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 80px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+    }
+
+    h1 {
+      color: #ff4d6d;
+    }
+
+    input {
+      padding: 12px;
+      font-size: 16px;
+      width: 70%;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 12px 20px;
+      font-size: 16px;
+      background: #ff4d6d;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .message {
+      font-size: 18px;
+      line-height: 1.8;
+      margin-top: 25px;
+    }
+
+    .gallery img {
+      width: 200px;
+      margin: 10px;
+      border-radius: 15px;
+    }
+
+    .footer {
+      margin-top: 30px;
+      font-weight: bold;
+    }
+
+    /* Floating hearts */
+    .heart {
+      position: fixed;
+      bottom: 0;
+      font-size: 22px;
+      animation: floatUp 6s linear forwards;
+    }
+
+    @keyframes floatUp {
+      from {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      to {
+        transform: translateY(-100vh);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- PASSWORD PAGE -->
+  <div id="passwordPage" class="container">
+    <h1> A Special Secret Message</h1>
+    <p>Enter your nickname to continue 💕</p>
+
+    <input type="password" id="password" placeholder="Enter the nickname I call you" />
+    <br />
+    <button onclick="checkPassword()">Enter</button>
+
+    <p id="error" style="color:red;"></p>
+  </div>
+
+  <!-- LOVE PAGE -->
+  <div id="lovePage" class="container hidden">
+    <h1>Happy Valentine’s Day, My Baby</h1>
+
+    <button onclick="showLove()">Click if you love me 💘</button>
+
+    <p id="loveMessage" class="message hidden">
+      From the moment you walked into my life, everything started making sense.
+      You’re my calm in chaos, my favorite notification, and the one person
+      my heart will always compile successfully with 😌.
+      <br><br>
+Every time I think about us, my heart always goes back to the very beginning. Back to that days when I waited after your football training in school. You would come off the field tired, sweaty, sometimes smiling, sometimes frustrated, but always you. I did not know then that those moments would quietly turn into a lifetime of memories. I just knew I wanted to be there, to walk beside you, to listen to you, to be part of your world. And from that day, we never stopped choosing each other. <br>
+
+We have grown together in ways I never imagined. Through laughter, late conversations, shared dreams, and yes, through disagreements and arguments too. We have fought sometimes, misunderstood each other, and said things we later had to heal from. But even in those moments, love never left the room. We always found our way back, because what we have is deeper than pride, deeper than anger. Loving you taught me that love is not about perfection, it is about staying, even when it is hard.
+
+One of the moments that changed me forever was when you felt your whole world was crumbling. I saw the pain in your eyes, the silence that words could not fill, the way the world suddenly felt heavier for you. There were times you felt like you had no one, like everything was slipping away. And in those moments, I was grateful for one thing. I was there. Not because I had all the answers, but because my heart refused to leave you alone in your pain. Holding you through that season showed me what love truly means. It means standing firm when everything else feels like it is falling apart.
+
+I love you for your strength, even when you do not see it. I love you for your softness, even when life tries to harden you. I love you for your laughter, your emotions, your stubbornness, your passion, and your heart. Every moment spent with you has its own magic. Even the quiet ones. Even the ordinary days. With you, nothing feels empty.
+
+You have been my constant. My safe place. My partner. My friend. My love. Through every phase, every struggle, every joy, you have been worth it all. I am proud of the woman you are becoming, proud of how far you have come, and honored to walk this journey with you.
+
+On this Valentine’s Day, I just want you to know that my love for you is not seasonal, it is steady. It is patient. It is choosing you every day, just like I did from that very first day after your football game. No matter where life takes us, my heart knows its home. It is with you.
+
+I love you deeply, endlessly, and always.
+
+If love were an algorithm, you’d be my optimal solution. No bugs, no crashes, no termination condition.
+Just us — forever.
+    </p>
+
+    <div class="gallery">
+      <img src="images/img1.JPG" />
+      <img src="images/img2.jpg" />
+      <img src="images/img3.jpg" />
+      <img src="images/img4.png" />
+    </div>
+
+    <p class="footer">Forever yours 😍</p>
+  </div>
+
+  <script>
+    // PASSWORD CHECK
+    function checkPassword() {
+      const password = document.getElementById("password").value.toLowerCase();
+      if (password === "denny") {
+        document.getElementById("passwordPage").classList.add("hidden");
+        document.getElementById("lovePage").classList.remove("hidden");
+        startHearts();
+      } else {
+        document.getElementById("error").innerText =
+          "Oops 😅 Only my babygirl can enter";
+      }
+    }
+
+    // SHOW LOVE MESSAGE
+    function showLove() {
+      document.getElementById("loveMessage").classList.remove("hidden");
+    }
+
+    // FLOATING HEARTS
+    function startHearts() {
+      setInterval(() => {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "❤";
+        heart.style.left = Math.random() * 100 + "vw";
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 6000);
+      }, 500);
+    }
+  </script>
+
+</body>
+</html>
